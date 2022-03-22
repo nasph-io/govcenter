@@ -1,0 +1,28 @@
+{
+  "kind": "collectionType",
+  "collectionName": "kraken_configs",
+  "info": {
+    "singularName": "kraken-config",
+    "pluralName": "kraken-configs",
+    "displayName": "Kraken Config",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "source": {
+      "type": "json"
+    },
+    "api": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::api.api",
+      "inversedBy": "kraken_config"
+    }
+  }
+}

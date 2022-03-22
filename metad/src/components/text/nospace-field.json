@@ -1,0 +1,14 @@
+{
+  "collectionName": "components_text_nospace_fields",
+  "info": {
+    "displayName": "nospace_field",
+    "icon": "arrows-alt-h"
+  },
+  "options": {},
+  "attributes": {
+    "no_space": {
+      "type": "string",
+      "regex": "/^[A-Za-z]+$/"
+    }
+  }
+}

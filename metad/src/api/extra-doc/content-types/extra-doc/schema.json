@@ -1,0 +1,28 @@
+{
+  "kind": "collectionType",
+  "collectionName": "extra_docs",
+  "info": {
+    "singularName": "extra-doc",
+    "pluralName": "extra-docs",
+    "displayName": "ExtraDoc",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "documentation": {
+      "type": "richtext"
+    },
+    "api": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::api.api",
+      "inversedBy": "extra_docs"
+    }
+  }
+}

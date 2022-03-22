@@ -1,0 +1,24 @@
+{
+  "kind": "collectionType",
+  "collectionName": "billings",
+  "info": {
+    "singularName": "billing",
+    "pluralName": "billings",
+    "displayName": "Billing"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "transaction": {
+      "type": "uid"
+    },
+    "api": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::api.api",
+      "inversedBy": "billings"
+    }
+  }
+}

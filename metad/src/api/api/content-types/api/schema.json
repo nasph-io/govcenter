@@ -1,0 +1,87 @@
+{
+  "kind": "collectionType",
+  "collectionName": "apis",
+  "info": {
+    "singularName": "api",
+    "pluralName": "apis",
+    "displayName": "API",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "api_key_name": {
+      "type": "string",
+      "required": true,
+      "unique": true,
+      "minLength": 5
+    },
+    "api_display_name": {
+      "type": "string"
+    },
+    "description": {
+      "type": "richtext"
+    },
+    "sandbox_endpoint": {
+      "type": "string",
+      "regex": "(^http[s]?:\\/{2})|(^www)|(^\\/{1,2})"
+    },
+    "production_endpoint": {
+      "type": "string",
+      "regex": "(^http[s]?:\\/{2})|(^www)|(^\\/{1,2})"
+    },
+    "type": {
+      "type": "enumeration",
+      "enum": [
+        "public",
+        "private",
+        "deprecated",
+        "partner"
+      ]
+    },
+    "swagger_source": {
+      "type": "json"
+    },
+    "oas_attached_file": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "files"
+      ]
+    },
+    "main_documentation": {
+      "type": "richtext"
+    },
+    "devportal_uri": {
+      "type": "string",
+      "regex": "(^http[s]?:\\/{2})|(^www)|(^\\/{1,2})"
+    },
+    "extra_docs": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::extra-doc.extra-doc",
+      "mappedBy": "api"
+    },
+    "plans": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::plan.plan",
+      "mappedBy": "api"
+    },
+    "billings": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::billing.billing",
+      "mappedBy": "api"
+    },
+    "kraken_config": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::kraken-config.kraken-config",
+      "mappedBy": "api"
+    }
+  }
+}
