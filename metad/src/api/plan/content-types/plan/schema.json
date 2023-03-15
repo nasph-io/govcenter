@@ -18,12 +18,6 @@
     "description": {
       "type": "richtext"
     },
-    "api": {
-      "type": "relation",
-      "relation": "manyToOne",
-      "target": "api::api.api",
-      "inversedBy": "plans"
-    },
     "price": {
       "type": "decimal",
       "min": 0
@@ -39,6 +33,9 @@
     },
     "numberOfRequests": {
       "type": "string"
+    },
+    "isTrial": {
+      "type": "boolean"
     }
   }
 }

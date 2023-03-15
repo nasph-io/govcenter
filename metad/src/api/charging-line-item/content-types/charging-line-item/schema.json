@@ -1,0 +1,25 @@
+{
+  "kind": "collectionType",
+  "collectionName": "charging_line_items",
+  "info": {
+    "singularName": "charging-line-item",
+    "pluralName": "charging-line-items",
+    "displayName": "ChargingLineItem",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "invoice": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::invoice.invoice",
+      "inversedBy": "charging_line_items"
+    },
+    "uuid": {
+      "type": "string"
+    }
+  }
+}

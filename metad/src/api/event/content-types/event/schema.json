@@ -1,0 +1,32 @@
+{
+  "kind": "collectionType",
+  "collectionName": "events",
+  "info": {
+    "singularName": "event",
+    "pluralName": "events",
+    "displayName": "Event",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "event_type": {
+      "type": "enumeration",
+      "enum": [
+        "ERROR",
+        "INFO",
+        "WARNING",
+        "TRACING",
+        "WORKFLOW"
+      ]
+    },
+    "event_message": {
+      "type": "text"
+    },
+    "event_clientid": {
+      "type": "string"
+    }
+  }
+}

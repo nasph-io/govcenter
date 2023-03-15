@@ -4,7 +4,8 @@
   "info": {
     "singularName": "billing",
     "pluralName": "billings",
-    "displayName": "Billing"
+    "displayName": "Billing",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -14,11 +15,28 @@
     "transaction": {
       "type": "uid"
     },
-    "api": {
+    "status": {
+      "type": "enumeration",
+      "enum": [
+        "new",
+        "processing",
+        "processed",
+        "billed",
+        "free-of-charge"
+      ],
+      "default": "new"
+    },
+    "invoice": {
       "type": "relation",
       "relation": "manyToOne",
-      "target": "api::api.api",
+      "target": "api::invoice.invoice",
       "inversedBy": "billings"
+    },
+    "client_id": {
+      "type": "string"
+    },
+    "api_path": {
+      "type": "string"
     }
   }
 }

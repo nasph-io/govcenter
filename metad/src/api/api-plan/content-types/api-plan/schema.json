@@ -1,0 +1,55 @@
+{
+  "kind": "collectionType",
+  "collectionName": "api_plans",
+  "info": {
+    "singularName": "api-plan",
+    "pluralName": "api-plans",
+    "displayName": "APIPlan",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "displayName": {
+      "type": "string"
+    },
+    "api": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::api.api",
+      "inversedBy": "api_plans"
+    },
+    "allowedRequests": {
+      "type": "integer"
+    },
+    "requestsSurplus": {
+      "type": "integer"
+    },
+    "surplusPrice": {
+      "type": "decimal"
+    },
+    "price": {
+      "type": "decimal"
+    },
+    "chargeType": {
+      "type": "enumeration",
+      "enum": [
+        "Monthly",
+        "PrePaid",
+        "Partner",
+        "WhiteLabel"
+      ]
+    },
+    "free_tier": {
+      "type": "boolean"
+    }
+  }
+}

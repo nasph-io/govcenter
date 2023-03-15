@@ -59,29 +59,26 @@
       "type": "string",
       "regex": "(^http[s]?:\\/{2})|(^www)|(^\\/{1,2})"
     },
-    "extra_docs": {
+    "api_path": {
+      "type": "string"
+    },
+    "api_plans": {
       "type": "relation",
       "relation": "oneToMany",
-      "target": "api::extra-doc.extra-doc",
+      "target": "api::api-plan.api-plan",
       "mappedBy": "api"
     },
-    "plans": {
-      "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::plan.plan",
-      "mappedBy": "api"
+    "api_logo": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
     },
-    "billings": {
-      "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::billing.billing",
-      "mappedBy": "api"
-    },
-    "kraken_config": {
-      "type": "relation",
-      "relation": "oneToOne",
-      "target": "api::kraken-config.kraken-config",
-      "mappedBy": "api"
+    "terms_of_service": {
+      "type": "richtext",
+      "required": true
     }
   }
 }

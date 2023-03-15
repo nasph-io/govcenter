@@ -1,0 +1,7 @@
+
+{
+  "govcenter_base_uri": "http://localhost:1337/",
+  "api_key": "f23b7c8fddd776338cc6e3429eff1b45671e9c7b262ff945417660f0b4b2033c416a00874877756f4c4d1a9640aa7a81ef6a7411f1b71e97714e9f59d84c215e8853ccdd241bc7781447dc9758b05b8feebd62568c64ad1d63c8016b145e91e776f0b168749e59758d2ee995ce4c349e4cfabb8adc3f39286c0a6d1dc1996a7d",
+  "doc_path": "./doc/api",
+  "docproject": "WHERE IS DOCUSSAURUS ROOT"
+}

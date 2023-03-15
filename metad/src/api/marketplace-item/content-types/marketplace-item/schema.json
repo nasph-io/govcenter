@@ -1,0 +1,46 @@
+{
+  "kind": "collectionType",
+  "collectionName": "marketplace_items",
+  "info": {
+    "singularName": "marketplace-item",
+    "pluralName": "marketplace-items",
+    "displayName": "Marketplace Item"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "icon": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false
+    },
+    "small_description": {
+      "type": "string"
+    },
+    "long_description": {
+      "type": "richtext"
+    },
+    "marketplace": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::marketplace.marketplace",
+      "inversedBy": "marketplace_items"
+    },
+    "version": {
+      "type": "string"
+    }
+  }
+}

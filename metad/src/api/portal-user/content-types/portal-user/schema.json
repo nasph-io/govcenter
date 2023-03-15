@@ -1,0 +1,104 @@
+{
+  "kind": "collectionType",
+  "collectionName": "portal_users",
+  "info": {
+    "singularName": "portal-user",
+    "pluralName": "portal-users",
+    "displayName": "Portal User",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "client_id": {
+      "type": "string",
+      "unique": true,
+      "required": true
+    },
+    "client_secret": {
+      "type": "string",
+      "required": true,
+      "unique": false
+    },
+    "cnpj": {
+      "type": "string",
+      "required": false,
+      "unique": false
+    },
+    "addressContinued": {
+      "type": "string"
+    },
+    "street": {
+      "type": "string",
+      "required": true
+    },
+    "neighborhood": {
+      "type": "string",
+      "required": true
+    },
+    "zipcode": {
+      "type": "string",
+      "required": true
+    },
+    "city": {
+      "type": "string",
+      "required": true
+    },
+    "state": {
+      "type": "string",
+      "required": true
+    },
+    "website": {
+      "type": "string",
+      "required": false
+    },
+    "acceptTerms": {
+      "type": "boolean",
+      "required": true
+    },
+    "client_url": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "user_email": {
+      "type": "email",
+      "unique": true,
+      "required": true
+    },
+    "user_id": {
+      "type": "string",
+      "required": false
+    },
+    "status": {
+      "type": "enumeration",
+      "enum": [
+        "approved",
+        "awaiting",
+        "denied"
+      ],
+      "default": "awaiting"
+    },
+    "company_name": {
+      "type": "string"
+    },
+    "trade_name": {
+      "type": "string"
+    },
+    "subscriptions": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::subscription.subscription",
+      "mappedBy": "portal_user"
+    },
+    "is_admin": {
+      "type": "boolean",
+      "default": false
+    },
+    "number": {
+      "type": "integer"
+    }
+  }
+}

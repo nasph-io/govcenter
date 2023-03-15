@@ -1,0 +1,25 @@
+{
+  "kind": "collectionType",
+  "collectionName": "emails_subscriptions",
+  "info": {
+    "singularName": "emails-subscription",
+    "pluralName": "emails-subscriptions",
+    "displayName": "EmailsSubscription",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "email": {
+      "type": "email"
+    },
+    "subscription": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::subscription.subscription",
+      "inversedBy": "emails_subscriptions"
+    }
+  }
+}

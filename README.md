@@ -1,40 +1,8 @@
 # govcenter
 API Governance Center 
 
-1 - Cloning repository
-```sh
-git clone https://github.com/nasph-io/govcenter.git
+``cd metad/``
 
-```
-2 - Installing necessary dependencies: nvm, yarn
-```sh
-curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
-```
-```
-yarn
-```
-3 - Node version used
-```
-nvm -v
-```
-4 - For the program to work it must be with version above 12 and below 16, so we will use version 14
-```
-nvm use 14
-```
-5 - Installing sqllite3 with npm
-```
-npm install sqlite3 --save
-```
-6 - Installing sqllite3 with yarn
-```
-yarn add sqlite3
-```
-7 - Command to run the program with yarn
-```
-yarn develop
-```
-8 - Command to run the program with npm
-```
-npm start
-```
+``yarn``
 
+``docker build --build-arg PROXY_HTTP=http://proxy.cnptia.embrapa.br:3128 --build-arg PROXY_HTTPS=http://proxy.cnptia.embrapa.br:3128 --build-arg PROXY_NO=127.0.0.1,10.129.0.0/16,200.0.70.0/24,2801:80:1400::/48,localhost,.cnptia.embrapa.br,.sbiagro.org.br,.agritempo.gov.br,.agrolivre.gov.br -t embrapa-agroapi/govcenter .``

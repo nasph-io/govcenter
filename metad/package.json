@@ -7,16 +7,20 @@
     "develop": "strapi develop",
     "start": "strapi start",
     "build": "strapi build",
-    "strapi": "strapi"
+    "strapi": "strapi",
+    "clean": "rm -rf .cache .tmp build"
   },
-  "devDependencies": {},
   "dependencies": {
-    "@strapi/plugin-documentation": "4.1.2",
-    "@strapi/plugin-i18n": "4.1.2",
-    "@strapi/plugin-users-permissions": "4.1.2",
-    "@strapi/provider-email-sendgrid": "^4.1.2",
-    "@strapi/strapi": "4.1.2",
+    "@strapi/plugin-documentation": "4.1.9",
+    "@strapi/plugin-graphql": "4.1.9",
+    "@strapi/plugin-i18n": "4.1.9",
+    "@strapi/plugin-users-permissions": "4.1.9",
+    "@strapi/strapi": "4.1.9",
+    "bookshelf": "^1.2.0",
     "mysql": "2.18.1",
+    "pg": "^8.7.3",
+    "sharkdoc": "^0.0.21",
+    "sqlite3": "^5.0.8",
     "strapi-plugin-entity-relationship-chart": "^4.0.2"
   },
   "author": {

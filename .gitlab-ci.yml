@@ -1,0 +1,56 @@
+docker-build:
+  variables:
+    DOCKER_TLS_CERTDIR: "/certs"
+    HTTPS_PROXY: "http://proxy.cnptia.embrapa.br:3128"
+    HTTP_PROXY: "http://proxy.cnptia.embrapa.br:3128"
+    NO_PROXY: "docker"
+    IMAGE_TAG: $CI_REGISTRY_IMAGE:$CI_COMMIT_REF_SLUG
+    CONTAINER_TEST_IMAGE: $CI_REGISTRY_IMAGE:$CI_COMMIT_REF_SLUG
+    CONTAINER_RELEASE_IMAGE: $CI_REGISTRY_IMAGE:latest
+
+
+  # Use the official docker image.
+  image: docker:latest
+  stage: build
+  services:
+    - name: docker:dind
+      entrypoint: ["dockerd-entrypoint.sh"]
+      command: ["--insecure-registry", "docker-registry.cnptia.embrapa.br"]
+
+  before_script:
+    # - mkdir /etc/docker
+    # - cat > /etc/docker/daemon.json << $REGISTRY_JSON
+    # - mkdir /etc/docker
+    # - echo $REGISTRY_JSON > /etc/docker/daemon.json
+    # - cat /etc/docker/daemon.json
+    - docker login -u $CI_REGISTRY_USER -p $CI_JOB_TOKEN docker-registry.cnptia.embrapa.br
+    #- docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD docker-registry.cnptia.embrapa.br
+    - docker info
+    #- docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD $CI_REGISTRY    
+    #- echo "$PASSWORD" | docker login -u "$LOGIN" --password-stdin "docker-registry.cnptia.embrapa.br"  
+    # - mkdir -p $HOME/certs
+    # - mkdir -p /etc/docker/certs.d/docker-registry.cnptia.embrapa.br
+    # - wget -P $HOME/certs http://sslcert.cnptia.embrapa.br/arquivos_pki/cacert-novaCA.pem
+    # # - wget -P $HOME/certs http://sslcert.cnptia.embrapa.br/arquivos_pki/intermediate.cert.pem
+    # - cp $HOME/certs/cacert-novaCA.pem /usr/local/share/ca-certificates/docker-registry.cnptia.embrapa.br.crt
+    # - cp $HOME/certs/cacert-novaCA.pem /etc/docker/certs.d/docker-registry.cnptia.embrapa.br/
+    # - cp $HOME/certs/intermediate.cert.pem /usr/local/share/ca-certificates/
+    #- update-ca-certificates
+    #- mkdir -p $HOME/.docker
+    #- echo $DOCKER_CONFIG > $HOME/.docker/config.json
+   # - docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD $CI_REGISTRY
+   # - docker login -u "$CI_REGISTRY_USER" -p "$CI_REGISTRY_PASSWORD"
+
+  script:
+    - echo ' @@@@  Building Images ..... '
+    - cd metad
+    #- docker login -u $LOGIN --password-stdin $CI_JOB_TOKEN docker-registry.cnptia.embrapa.br:5000
+    #- docker login -u "gitlab+deploy-token-16" --password-stdin "-p-peddQbZkoh34-CdTZ" docker-registry.cnptia.embrapa.br:5000
+   # - echo "$CI_REGISTRY_PASSWORD" | docker login -u "$CI_REGISTRY_USER" --password-stdin "$CI_REGISTRY"
+    #- echo "$PASSWORD" | docker login -u "$LOGIN" --password-stdin "$CI_REGISTRY"
+    
+  #  - cp .env.sample .env
+    - docker build --pull --build-arg PROXY_HTTP=http://proxy.cnptia.embrapa.br:3128 --build-arg PROXY_HTTPS=http://proxy.cnptia.embrapa.br:3128 --build-arg PROXY_NO=127.0.0.1,10.129.0.0/16,200.0.70.0/24,2801:80:1400::/48,localhost,.cnptia.embrapa.br,.sbiagro.org.br,.agritempo.gov.br,.agrolivre.gov.br -t docker-registry.cnptia.embrapa.br:5000/agroapi-nasph/govcenter .
+    - docker push docker-registry.cnptia.embrapa.br:5000/agroapi-nasph/govcenter
+    #- docker push $CONTAINER_RELEASE_IMAGE
+    - echo 'Done'
